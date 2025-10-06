@@ -104,14 +104,65 @@
         <label for="nom">Nom complet :</label>
         <input type="text" id="nom" name="Nom" required>
 
-        <label for="montant">Montant en USDT :</label>
-        <input type="number" id="montant" name="Montant" required>
+        <label for="montant">Montant :</label>
+<input type="number" id="montant" name="Montant" placeholder="0" required>
+<span id="devise">USDT</span>
+
+<script>
+const inputMontant = document.getElementById('montant');
+const devise = document.getElementById('devise');
+
+// Affiche toujours la devise à côté de l'input
+inputMontant.addEventListener('input', function() {
+    // Optionnel : on pourrait aussi mettre "USDT" à l'intérieur de l'input en lecture seule, mais c'est mieux à côté
+    if(inputMontant.value) {
+        devise.textContent = "USDT";
+    } else {
+        devise.textContent = "USDT"; // reste affiché même si vide
+    }
+});
+</script>
+
+<style>
+#montant {
+    width: calc(100% - 60px); /* espace pour le span USDT */
+    display: inline-block;
+}
+#devise {
+    display: inline-block;
+    padding-left: 10px;
+    font-weight: bold;
+}
+</style>
 
         <label for="wallet">Adresse wallet USDT :</label>
         <input type="text" id="wallet" name="Wallet" required>
 
         <label for="whatsapp">Numéro WhatsApp :</label>
-        <input type="text" id="whatsapp" name="WhatsApp" placeholder="509XXXXXXXX" required>
+<input type="text" id="whatsapp" name="WhatsApp" placeholder="509XXXXXXXX" required>
+
+<!-- Lien cliquable dynamique -->
+<p id="whatsappLienContainer" style="margin-top:10px; display:none;">
+    Ouvrir WhatsApp : <a href="#" id="whatsappLien" target="_blank"></a>
+</p>
+
+<!-- Script pour générer le lien -->
+<script>
+    const inputWhatsApp = document.getElementById('whatsapp');
+    const lienContainer = document.getElementById('whatsappLienContainer');
+    const lien = document.getElementById('whatsappLien');
+
+    inputWhatsApp.addEventListener('input', function() {
+        let numero = inputWhatsApp.value.replace(/\D/g,''); // ne garde que les chiffres
+        if(numero.length >= 8) { // Vérifie qu'il y a un numéro valide
+            lien.href = `https://wa.me/${numero}`;
+            lien.textContent = `Ouvrir WhatsApp avec ${numero}`;
+            lienContainer.style.display = 'block';
+        } else {
+            lienContainer.style.display = 'none';
+        }
+    });
+</script>
 
         <label for="paiement">Méthode de paiement :</label>
         <select id="paiement" name="Paiement" required>
