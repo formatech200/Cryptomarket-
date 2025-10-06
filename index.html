@@ -141,12 +141,21 @@ inputMontant.addEventListener('input', function() {
         <label for="whatsapp">WhatsApp</label>
 <input type="text" id="whatsapp" name="WhatsApp" oninput="updateLink(this)" required>
 
+<!-- Champ caché pour envoyer le lien cliquable -->
 <input type="hidden" id="whatsapp_link" name="WhatsApp_Link">
 
 <script>
 function updateLink(input) {
+  // On garde seulement les chiffres du numéro
   const num = input.value.replace(/\D/g, '');
-  document.getElementById('whatsapp_link').value = `https://wa.me/${num}`;
+  
+  // Si le numéro semble valide (au moins 8 chiffres)
+  if (num.length >= 8) {
+    // Met le lien complet dans le champ caché
+    document.getElementById('whatsapp_link').value = `https://wa.me/${num}`;
+  } else {
+    document.getElementById('whatsapp_link').value = '';
+  }
 }
 </script>
 
