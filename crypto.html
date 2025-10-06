@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Market - Achat USDT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1e1e2f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header p {
+            margin: 5px 0 0;
+        }
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #1e1e2f;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        input, select, textarea, button {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #1e1e2f;
+            color: white;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #333;
+        }
+        .info {
+            background-color: #fffae6;
+            padding: 10px;
+            border-left: 5px solid #ffc107;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #1e1e2f;
+            color: white;
+        }
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Crypto Market</h1>
+        <p>Achat rapide de USDT via MonCash ou NatCash</p>
+    </header>
+
+    <main>
+        <h2>Formulaire de demande USDT</h2>
+        <div class="info">
+            Taux fixe : <strong>1 USDT = 140 HTG</strong><br>
+            Réception des USDT dans <strong>15 minutes</strong> après confirmation du paiement.<br>
+            ⚠️ Vérifiez bien votre adresse de wallet USDT (ERC-20, TRC-20 ou BSC) !
+        </div>
+        <form action="#" method="post">
+            <label for="nom">Nom complet :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="montant">Montant en USDT :</label>
+            <input type="number" id="montant" name="montant" required>
+
+            <label for="wallet">Adresse wallet USDT :</label>
+            <input type="text" id="wallet" name="wallet" required>
+
+            <label for="paiement">Méthode de paiement :</label>
+            <select id="paiement" name="paiement" required>
+                <option value="">--Choisir--</option>
+                <option value="moncash">MonCash</option>
+                <option value="natcash">NatCash</option>
+            </select>
+
+            <label for="message">Message (facultatif) :</label>
+            <textarea id="message" name="message" rows="3"></textarea>
+
+            <button type="submit">Envoyer la demande</button>
+        </form>
+    </main>
+
+    <footer>
+        Contact : 
+        <a href="https://wa.me/50943750836" target="_blank">WhatsApp</a> | 
+        <a href="mailto:duvaldijnbaptiste@gmail.com">Email</a>
+    </footer>
+</body>
+</html>
