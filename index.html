@@ -139,12 +139,8 @@ inputMontant.addEventListener('input', function() {
         <input type="text" id="wallet" name="Wallet" required>
 
         <label for="whatsapp">Numéro WhatsApp :</label>
-<input type="text" id="whatsapp" name="WhatsApp" placeholder="509XXXXXXXX" required>
+<input type="hidden" name="WhatsAppLink" value="https://wa.me/5090000000">
 
-<!-- Lien cliquable dynamique -->
-<p id="whatsappLienContainer" style="margin-top:10px; display:none;">
-    Ouvrir WhatsApp : <a href="#" id="whatsappLien" target="_blank"></a>
-</p>
 
 <!-- Script pour générer le lien -->
 <script>
