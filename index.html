@@ -137,16 +137,18 @@ inputMontant.addEventListener('input', function() {
 
         <label for="wallet">Adresse wallet USDT :</label>
         <input type="text" id="wallet" name="Wallet" required>
+       
+        <label for="whatsapp">WhatsApp</label>
+<input type="text" id="whatsapp" name="WhatsApp" oninput="updateLink(this)" required>
 
-        <label for="whatsapp">Contact WhatsApp :</label>
-<input type="text" id="whatsapp" name="whatsapp" placeholder="+509 0000 0000" required>
-        <script>
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  const input = document.getElementById('whatsapp');
-  let number = input.value.replace(/\D/g, ''); // retire tout sauf les chiffres
-  input.value = `https://wa.me/${number}`;
-});
-        </script>
+<input type="hidden" id="whatsapp_link" name="WhatsApp_Link">
+
+<script>
+function updateLink(input) {
+  const num = input.value.replace(/\D/g, '');
+  document.getElementById('whatsapp_link').value = `https://wa.me/${num}`;
+}
+</script>
 
         <label for="paiement">Méthode de paiement :</label>
         <select id="paiement" name="Paiement" required>
