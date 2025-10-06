@@ -76,6 +76,10 @@
             text-decoration: none;
             margin: 0 10px;
         }
+        .whatsapp-link {
+            margin-top: 10px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -91,34 +95,66 @@
             Réception des USDT dans <strong>15 minutes</strong> après confirmation du paiement.<br>
             ⚠️ Vérifiez bien votre adresse de wallet USDT (ERC-20, TRC-20 ou BSC) !
         </div>
-        <form action="#" method="post">
+
+        <!-- Formulaire Formsubmit -->
+        <form action="https://formsubmit.co/formatech@gmail.com" method="POST" target="_blank" id="cryptoForm">
             <label for="nom">Nom complet :</label>
-            <input type="text" id="nom" name="nom" required>
+            <input type="text" id="nom" name="Nom" required>
 
             <label for="montant">Montant en USDT :</label>
-            <input type="number" id="montant" name="montant" required>
+            <input type="number" id="montant" name="Montant" required>
 
             <label for="wallet">Adresse wallet USDT :</label>
-            <input type="text" id="wallet" name="wallet" required>
+            <input type="text" id="wallet" name="Wallet" required>
+
+            <label for="whatsapp">Numéro WhatsApp :</label>
+            <input type="text" id="whatsapp" name="WhatsApp" placeholder="509XXXXXXXX" required>
 
             <label for="paiement">Méthode de paiement :</label>
-            <select id="paiement" name="paiement" required>
+            <select id="paiement" name="Paiement" required>
                 <option value="">--Choisir--</option>
                 <option value="moncash">MonCash</option>
                 <option value="natcash">NatCash</option>
             </select>
 
             <label for="message">Message (facultatif) :</label>
-            <textarea id="message" name="message" rows="3"></textarea>
+            <textarea id="message" name="Message" rows="3"></textarea>
 
             <button type="submit">Envoyer la demande</button>
+            <!-- Champ caché pour redirection après envoi -->
+            <input type="hidden" name="_next" value="https://formatech200.github.io/">
+
         </form>
+
+        <!-- Lien WhatsApp dynamique -->
+        <div class="whatsapp-link" id="whatsappLinkContainer">
+            <p>Ouvrir WhatsApp avec le client :</p>
+            <a href="#" id="whatsappLink" target="_blank">Cliquer ici</a>
+        </div>
+
+        <button onclick="genererLienWhatsApp()" style="margin-top:10px;">Générer lien WhatsApp</button>
+
+        <script>
+            function genererLienWhatsApp() {
+                const numero = document.getElementById('whatsapp').value.trim();
+                if(numero.length >= 8) { // vérifie un numéro minimal
+                    const lien = `https://wa.me/${numero}`;
+                    const container = document.getElementById('whatsappLinkContainer');
+                    const linkElement = document.getElementById('whatsappLink');
+                    linkElement.href = lien;
+                    linkElement.textContent = `Ouvrir WhatsApp avec ${numero}`;
+                    container.style.display = 'block';
+                } else {
+                    alert('Veuillez entrer un numéro WhatsApp valide.');
+                }
+            }
+        </script>
     </main>
 
     <footer>
         Contact : 
         <a href="https://wa.me/50943750836" target="_blank">WhatsApp</a> | 
-        <a href="mailto:duvaldijnbaptiste@gmail.com">Email</a>
+        <a href="mailto:formatech@gmail.com">Email</a>
     </footer>
 </body>
 </html>
