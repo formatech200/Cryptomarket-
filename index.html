@@ -3,110 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulaire WhatsApp</title>
+<title>Crypto Market - Achat USDT</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-  }
-
-  .form-container {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .form-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333333;
-  }
-
-  label {
-    font-weight: bold;
-    color: #555555;
-  }
-
-  input {
-    width: 100%;
-    padding: 10px 12px;
-    margin: 8px 0 16px 0;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
-    font-size: 16px;
-  }
-
-  button {
-    width: 100%;
-    padding: 12px;
-    background-color: #25D366; /* vert WhatsApp */
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  button:hover {
-    background-color: #1ebe5d;
-  }
-
-  @media (max-width: 500px) {
-    .form-container {
-      padding: 20px;
+    body {
+        font-family: Arial, sans-serif;
+        background: #f0f2f5;
+        margin: 0;
+        padding: 0;
     }
-  }
+    header {
+        background-color: #1e1e2f;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    header h1 {
+        margin: 0;
+    }
+    header p {
+        margin: 5px 0 0;
+    }
+    main {
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+        color: #1e1e2f;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin: 10px 0 5px;
+    }
+    input, select, textarea, button {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        background-color: #1e1e2f;
+        color: white;
+        border: none;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    button:hover {
+        background-color: #333;
+    }
+    .info {
+        background-color: #fffae6;
+        padding: 10px;
+        border-left: 5px solid #ffc107;
+        margin: 15px 0;
+        border-radius: 5px;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #1e1e2f;
+        color: white;
+    }
+    footer a {
+        color: #ffc107;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    @media (max-width: 500px) {
+        main {
+            padding: 15px;
+        }
+    }
 </style>
 </head>
 <body>
 
-<div class="form-container">
-  <h2>Demande WhatsApp</h2>
-  <form id="requestForm">
-    <label>Nom :</label>
-    <input type="text" id="name" required placeholder="Jean Dupont">
+<header>
+    <h1>Crypto Market</h1>
+    <p>Achat rapide de USDT via MonCash ou NatCash</p>
+</header>
 
-    <label>Montant :</label>
-    <input type="text" id="amount" required placeholder="50 USDT">
+<main>
+    <h2>Formulaire de demande USDT</h2>
+    <div class="info">
+        Taux fixe : <strong>1 USDT = 140 HTG</strong><br>
+        Réception des USDT dans <strong>15 minutes</strong> après confirmation du paiement.<br>
+        ⚠️ Vérifiez bien votre adresse de wallet USDT (ERC-20, TRC-20 ou BSC) !
+    </div>
 
-    <label>Numéro WhatsApp :</label>
-    <input type="text" id="phone" required placeholder="509XXXXXXXX">
+    <!-- Formulaire Formsubmit -->
+    <form action="https://formsubmit.co/formatech@gmail.com" method="POST" target="_blank" id="cryptoForm">
+        <label for="nom">Nom complet :</label>
+        <input type="text" id="nom" name="Nom" required>
 
-    <label>Méthode de paiement :</label>
-    <input type="text" id="payment" required placeholder="MonCash">
+        <label for="montant">Montant en USDT :</label>
+        <input type="number" id="montant" name="Montant" required>
 
-    <button type="button" onclick="sendWhatsApp()">Envoyer la demande</button>
-  </form>
-</div>
+        <label for="wallet">Adresse wallet USDT :</label>
+        <input type="text" id="wallet" name="Wallet" required>
 
-<script>
-function sendWhatsApp() {
-    const name = encodeURIComponent(document.getElementById('name').value);
-    const amount = encodeURIComponent(document.getElementById('amount').value);
-    const phone = document.getElementById('phone').value.replace(/\D/g,''); // garde seulement les chiffres
-    const payment = encodeURIComponent(document.getElementById('payment').value);
+        <label for="whatsapp">Numéro WhatsApp :</label>
+        <input type="text" id="whatsapp" name="WhatsApp" placeholder="509XXXXXXXX" required>
 
-    if (!phone) {
-        alert("Veuillez entrer un numéro WhatsApp valide !");
-        return;
+        <label for="paiement">Méthode de paiement :</label>
+        <select id="paiement" name="Paiement" required>
+            <option value="">--Choisir--</option>
+            <option value="moncash">MonCash</option>
+            <option value="natcash">NatCash</option>
+        </select>
+
+        <label for="message">Message (facultatif) :</label>
+        <textarea id="message" name="Message" rows="3"></textarea>
+
+        <!-- Envoi email via Formsubmit -->
+        <input type="hidden" name="_next" value="https://formatech200.github.io/">
+        <button type="submit">Envoyer la demande par Email</button>
+    </form>
+
+    <!-- Bouton WhatsApp -->
+    <button type="button" onclick="envoyerWhatsApp()">Envoyer sur WhatsApp</button>
+
+    <script>
+    function envoyerWhatsApp() {
+        const nom = encodeURIComponent(document.getElementById('nom').value);
+        const montant = encodeURIComponent(document.getElementById('montant').value);
+        const wallet = encodeURIComponent(document.getElementById('wallet').value);
+        const numero = document.getElementById('whatsapp').value.replace(/\D/g,''); // chiffres uniquement
+        const paiement = encodeURIComponent(document.getElementById('paiement').value);
+        const message = encodeURIComponent(document.getElementById('message').value);
+
+        if(!numero || numero.length < 8){
+            alert('Veuillez entrer un numéro WhatsApp valide.');
+            return;
+        }
+
+        // Message formaté
+        let texte = `Nouvelle demande USDT :\nNom : ${nom}\nMontant : ${montant} USDT\nWallet : ${wallet}\nPaiement : ${paiement}`;
+        if(message) texte += `\nMessage : ${message}`;
+
+        // Lien WhatsApp
+        const lien = `https://wa.me/${numero}?text=${texte}`;
+        window.open(lien, '_blank');
     }
+    </script>
 
-    const message = `Demande de ${amount} par ${payment}\nNom: ${name}`;
-    const url = `https://wa.me/${phone}?text=${message}`;
-    
-    window.open(url, '_blank'); // ouvre WhatsApp dans un nouvel onglet ou l'appli
-}
-</script>
+</main>
+
+<footer>
+    Contact : 
+    <a href="https://wa.me/50943750836" target="_blank">WhatsApp</a> | 
+    <a href="mailto:formatech@gmail.com">Email</a>
+</footer>
 
 </body>
 </html>
