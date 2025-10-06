@@ -139,28 +139,14 @@ inputMontant.addEventListener('input', function() {
         <input type="text" id="wallet" name="Wallet" required>
 
         <label for="whatsapp">Contact WhatsApp :</label>
-<a href="https://wa.me/5090000000" target="_blank" id="whatsapp">
-    +509 0000 0000
-</a>
-
-
-<!-- Script pour générer le lien -->
-<script>
-    const inputWhatsApp = document.getElementById('whatsapp');
-    const lienContainer = document.getElementById('whatsappLienContainer');
-    const lien = document.getElementById('whatsappLien');
-
-    inputWhatsApp.addEventListener('input', function() {
-        let numero = inputWhatsApp.value.replace(/\D/g,''); // ne garde que les chiffres
-        if(numero.length >= 8) { // Vérifie qu'il y a un numéro valide
-            lien.href = `https://wa.me/${numero}`;
-            lien.textContent = `Ouvrir WhatsApp avec ${numero}`;
-            lienContainer.style.display = 'block';
-        } else {
-            lienContainer.style.display = 'none';
-        }
-    });
-</script>
+<input type="text" id="whatsapp" name="whatsapp" placeholder="+509 0000 0000" required>
+        <script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  const input = document.getElementById('whatsapp');
+  let number = input.value.replace(/\D/g, ''); // retire tout sauf les chiffres
+  input.value = `https://wa.me/${number}`;
+});
+        </script>
 
         <label for="paiement">Méthode de paiement :</label>
         <select id="paiement" name="Paiement" required>
