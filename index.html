@@ -29,9 +29,10 @@ main {
     border-radius: 10px;
 }
 
-/* TITRES ORANGE */
+/* TITRE CENTRÉ */
 h2 {
     color: #ff6f00;
+    text-align: center;
 }
 
 /* FORM */
@@ -48,7 +49,7 @@ input, select, textarea {
     border: 1px solid #ccc;
 }
 
-/* BOUTON CENTRÉ ORANGE */
+/* BOUTON CENTRÉ */
 button {
     display: block;
     margin: 20px auto;
@@ -134,18 +135,12 @@ Réception en 15 à 30 minutes.
     <input type="number" id="montant-htg" name="montant_htg">
 </div>
 
-<label>WhatsApp :</label>
-<input type="text" id="whatsapp" name="WhatsApp" placeholder="509XXXXXXXX" required>
-
 <label>Message :</label>
-<textarea id="message" name="Message"></textarea>
+<textarea name="Message"></textarea>
 
 <input type="hidden" name="_next" value="https://formatech200.github.io/">
 
-<!-- BOUTON UNIQUE -->
-<button type="submit" onclick="envoyerWhatsApp()">
-🚀 Envoyer la demande
-</button>
+<button type="submit">🚀 Envoyer la demande</button>
 
 </form>
 
@@ -172,37 +167,6 @@ document.getElementById("paiement").addEventListener("change", function() {
         document.getElementById("champ-numero").style.display = "block";
     }
 });
-
-// ENVOI WHATSAPP + EMAIL
-function envoyerWhatsApp() {
-
-    let nom = document.querySelector('[name="Nom"]').value;
-    let paiement = document.getElementById('paiement').value;
-    let numeroWA = document.getElementById('whatsapp').value.replace(/\D/g,'');
-
-    let texte = `Nouvelle demande :
-Nom : ${nom}
-Méthode : ${paiement}`;
-
-    if(paiement === "wallet"){
-        let wallet = document.getElementById('wallet').value;
-        let montant = document.getElementById('montant-usdt').value;
-
-        texte += `\nWallet : ${wallet}\nMontant : ${montant} USDT`;
-    } else {
-        let numero = document.getElementById('numero').value;
-        let montant = document.getElementById('montant-htg').value;
-
-        texte += `\nNuméro : ${numero}\nMontant : ${montant} HTG`;
-    }
-
-    let lien = `https://wa.me/${numeroWA}?text=${encodeURIComponent(texte)}`;
-
-    // Ouvre WhatsApp
-    window.open(lien, '_blank');
-
-    // Email sera envoyé automatiquement par le formulaire
-}
 </script>
 
 </body>
