@@ -4,275 +4,163 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crypto Market - USDT - MonCash - NatCash</title>
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f0f2f5;
-        margin: 0;
-        padding: 0;
-    }
-    header {
-        background-color: #1e1e2f;
-        color: white;
-        padding: 20px;
-        text-align: center;
-    }
-    header h1 {
-        margin: 0;
-    }
-    header p {
-        margin: 5px 0 0;
-    }
-    main {
-        padding: 20px;
-        max-width: 600px;
-        margin: auto;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-        color: #1e1e2f;
-    }
-    form {
-        display: flex;
-        flex-direction: column;
-    }
-    label {
-        margin: 10px 0 5px;
-    }
-    input, select, textarea, button {
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-    button {
-        background-color: #1e1e2f;
-        color: white;
-        border: none;
-        margin-top: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    button:hover {
-        background-color: #333;
-    }
-    .info {
-        background-color: #fffae6;
-        padding: 10px;
-        border-left: 5px solid #ffc107;
-        margin: 15px 0;
-        border-radius: 5px;
-    }
-    footer {
-        text-align: center;
-        padding: 20px;
-        margin-top: 20px;
-        background-color: #1e1e2f;
-        color: white;
-    }
-    footer a {
-        color: #ffc107;
-        text-decoration: none;
-        margin: 0 10px;
-    }
-    @media (max-width: 500px) {
-        main {
-            padding: 15px;
-        }
-    }
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+}
+header {
+    background-color: #1e1e2f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+main {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+}
+label {
+    margin-top: 10px;
+    display: block;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+button {
+    margin-top: 20px;
+    padding: 12px;
+    background: #1e1e2f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background: #333;
+}
+.info {
+    background: #fffae6;
+    padding: 10px;
+    margin-bottom: 15px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
     <h1>Crypto Market</h1>
-    <p>transfer rapide de USDT- MonCash- NatCash</p>
+    <p>Transfert rapide USDT - MonCash - NatCash</p>
 </header>
 
 <main>
-    <h2>Formulaire de demande USDT</h2>
-    <div class="info">
-        Taux fixe : <strong>1 USDT = ≤ 138 HTG</strong><br>
-        Service de transfert et de vente de MonCash, NatCash et USDT.<strong> réception dans 15 à 30 minutes</strong> après confirmation du paiement.<br>
-        ⚠️ Vérifiez bien votre adresse de wallet USDT (ERC-20, TRC-20 ou BSC) ! ou votre numéro de téléphone 
-    </div>
 
-    <!-- Formulaire Formsubmit -->
-    <form action="https://formsubmit.co/formatech200@gmail.com" method="POST" target="_blank" id="cryptoForm">
-        <label for="nom">Nom complet :</label>
-        <input type="text" id="nom" name="Nom" required>
+<h2>Formulaire de demande USDT</h2>
 
-        <label for="montant">Montant :</label>
-<input type="number" id="montant" name="Montant" placeholder="0" required>
-<span id="devise">USDT</span>
-
-<script>
-const inputMontant = document.getElementById('montant');
-const devise = document.getElementById('devise');
-
-// Affiche toujours la devise à côté de l'input
-inputMontant.addEventListener('input', function() {
-    // Optionnel : on pourrait aussi mettre "USDT" à l'intérieur de l'input en lecture seule, mais c'est mieux à côté
-    if(inputMontant.value) {
-        devise.textContent = "USDT";
-    } else {
-        devise.textContent = "USDT"; // reste affiché même si vide
-    }
-});
-</script>
-
-<style>
-#montant {
-    width: calc(100% - 60px); /* espace pour le span USDT */
-    display: inline-block;
-}
-#devise {
-    display: inline-block;
-    padding-left: 10px;
-    font-weight: bold;
-}
-</style>
-
-        <div id="champ-wallet" style="display:none;">
-    <label>Adresse Wallet :</label>
-    <input type="text" name="wallet">
+<div class="info">
+Taux fixe : <strong>1 USDT = ≤ 138 HTG</strong><br>
+Réception en 15 à 30 minutes après confirmation.
 </div>
 
+<form action="https://formsubmit.co/formatech200@gmail.com" method="POST" target="_blank">
+
+<label>Nom complet :</label>
+<input type="text" name="Nom" required>
+
+<label>Montant (USDT) :</label>
+<input type="number" id="montant" name="Montant" required>
+
+<label>Méthode de réception :</label>
+<select id="paiement" name="Paiement" required>
+    <option value="">--Choisir--</option>
+    <option value="wallet">Adresse Wallet USDT</option>
+    <option value="moncash">MonCash</option>
+    <option value="natcash">NatCash</option>
+</select>
+
+<!-- Wallet -->
+<div id="champ-wallet" style="display:none;">
+    <label>Adresse Wallet :</label>
+    <input type="text" id="wallet" name="wallet">
+</div>
+
+<!-- Numéro -->
 <div id="champ-numero" style="display:none;">
     <label>Numéro :</label>
-    <input type="text" name="numero">
+    <input type="text" id="numero" name="numero">
 </div>
 
-<script>
-document.getElementById("paiement").addEventListener("change", function() {
-    let choix = this.value;
+<label>WhatsApp :</label>
+<input type="text" id="whatsapp" placeholder="509XXXXXXXX" required>
 
-    document.getElementById("champ-wallet").style.display = "none";
-    document.getElementById("champ-numero").style.display = "none";
+<label>Message :</label>
+<textarea id="message"></textarea>
 
-    if (choix === "wallet") {
-        document.getElementById("champ-wallet").style.display = "block";
-    } else if (choix === "moncash" || choix === "natcash") {
-        document.getElementById("champ-numero").style.display = "block";
-    }
-});
-</script>
-    <div id="champ-wallet" style="display:none;">
-    <label>Adresse Wallet :</label>
-    <input type="text" name="wallet">
-</div>
+<input type="hidden" name="_next" value="https://formatech200.github.io/">
 
-<div id="champ-numero" style="display:none;">
-    <label>Numéro :</label>
-    <input type="text" name="numero">
-</div>
+<button type="submit">Envoyer par Email</button>
 
-<script>
-document.getElementById("paiement").addEventListener("change", function() {
-    let choix = this.value;
+</form>
 
-    document.getElementById("champ-wallet").style.display = "none";
-    document.getElementById("champ-numero").style.display = "none";
-
-    if (choix === "wallet") {
-        document.getElementById("champ-wallet").style.display = "block";
-    } else if (choix === "moncash" || choix === "natcash") {
-        document.getElementById("champ-numero").style.display = "block";
-    }
-});
-</script>   
-        <label for="whatsapp">WhatsApp</label>
-<input type="text" id="whatsapp" name="WhatsApp" placeholder="50900000000" oninput="formatWhatsAppLink(this)" required>
-
-<script>
-function formatWhatsAppLink(input) {
-  // Garde uniquement les chiffres
-  const num = input.value.replace(/\D/g, '');
-
-  // Si le numéro semble valide (au moins 8 chiffres)
-  if (num.length >= 8) {
-    // Remplace directement la valeur par le lien complet avant l'envoi
-    input.value = `https://wa.me/${num}`;
-  }
-}
-</script>
-
-        <label for="paiement">Méthode de paiement :</label>
-        <select id="paiement" name="Paiement" required>
-            <option value="">--Choisir--</option>
-            <option value="moncash">MonCash</option>
-            <option value="natcash">NatCash</option>
-        </select>
-
-        <label for="message">Message (facultatif) :</label>
-        <textarea id="message" name="Message" rows="3"></textarea>
-
-        <!-- Envoi email via Formsubmit -->
-        <input type="hidden" name="_next" value=https://formatech200.github.io/">
-        <button type="submit">Envoyer la demande par Email</button>
-    </form>
-
-    <!-- Bouton WhatsApp -->
-    <button type="button" onclick="envoyerWhatsApp()">Envoyer sur WhatsApp</button>
-
-    <script>
-    function envoyerWhatsApp() {
-        const nom = encodeURIComponent(document.getElementById('nom').value);
-        const montant = encodeURIComponent(document.getElementById('montant').value);
-        const wallet = encodeURIComponent(document.getElementById('wallet').value);
-        const numero = document.getElementById('whatsapp').value.replace(/\D/g,''); // chiffres uniquement
-        const paiement = encodeURIComponent(document.getElementById('paiement').value);
-        const message = encodeURIComponent(document.getElementById('message').value);
-
-        if(!numero || numero.length < 8){
-            alert('Veuillez entrer un numéro WhatsApp valide.');
-            return;
-        }
-
-        // Message formaté
-        let texte = `Nouvelle demande USDT :\nNom : ${nom}\nMontant : ${montant} USDT\nWallet : ${wallet}\nPaiement : ${paiement}`;
-        if(message) texte += `\nMessage : ${message}`;
-
-        // Lien WhatsApp
-        const lien = `https://wa.me/${numero}?text=${texte}`;
-        window.open(lien, '_blank');
-    }
-    </script>
+<button onclick="envoyerWhatsApp()">Envoyer sur WhatsApp</button>
 
 </main>
 
-<footer>
-    Contact : 
-    <a href="https://wa.me/50943750836" target="_blank">WhatsApp</a> | 
-    <a href="mailto:formatech200@gmail.com">Email</a>
-</footer>
-
-</body>
-</html><button type="button" onclick="sendWA()">Envoyer sur WhatsApp</button>
-
 <script>
-function sendWA() {
-  const nom = document.querySelector('[name="Nom"]').value;
-  const service = document.querySelector('[name="Service"]').value;
-  const montant = document.querySelector('[name="Montant"]').value;
-  const destination = document.querySelector('[name="Destination"]').value;
-  const wa = document.getElementById('wa').value.replace(/\D/g,'');
+// Afficher champs selon choix
+document.getElementById("paiement").addEventListener("change", function() {
+    let choix = this.value;
 
-  if(!wa){
-    alert("Numéro WhatsApp invalide");
-    return;
-  }
+    document.getElementById("champ-wallet").style.display = "none";
+    document.getElementById("champ-numero").style.display = "none";
 
-  const msg =
-`Nouvelle demande Duvatech:
-Nom: ${nom}
-Service: ${service}
-Montant: ${montant}
-Destination: ${destination}`;
+    if (choix === "wallet") {
+        document.getElementById("champ-wallet").style.display = "block";
+    } else if (choix === "moncash" || choix === "natcash") {
+        document.getElementById("champ-numero").style.display = "block";
+    }
+});
 
-  const url = `https://wa.me/${wa}?text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
+// WhatsApp
+function envoyerWhatsApp() {
+    let nom = document.querySelector('[name="Nom"]').value;
+    let montant = document.getElementById('montant').value;
+    let paiement = document.getElementById('paiement').value;
+    let numero = document.getElementById('whatsapp').value.replace(/\D/g,'');
+
+    let wallet = "";
+    let numero_dest = "";
+
+    if(paiement === "wallet"){
+        wallet = document.getElementById('wallet').value;
+    } else {
+        numero_dest = document.getElementById('numero').value;
+    }
+
+    if(!numero || numero.length < 8){
+        alert("Numéro WhatsApp invalide");
+        return;
+    }
+
+    let texte = `Nouvelle demande USDT :
+Nom : ${nom}
+Montant : ${montant} USDT
+Paiement : ${paiement}`;
+
+    if(wallet) texte += `\nWallet : ${wallet}`;
+    if(numero_dest) texte += `\nNuméro : ${numero_dest}`;
+
+    let lien = `https://wa.me/${numero}?text=${encodeURIComponent(texte)}`;
+    window.open(lien, '_blank');
 }
 </script>
+
+</body>
+</html>
+
