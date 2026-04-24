@@ -29,7 +29,7 @@ main {
     border-radius: 10px;
 }
 
-/* TITRES */
+/* TITRES ORANGE */
 h2 {
     color: #ff6f00;
 }
@@ -44,13 +44,14 @@ input, select, textarea {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-/* BOUTON ORANGE */
+/* BOUTON CENTRÉ ORANGE */
 button {
-    margin-top: 20px;
+    display: block;
+    margin: 20px auto;
     padding: 12px;
     background: #ff6f00;
     color: white;
@@ -99,7 +100,7 @@ footer a {
 
 <div class="info">
 Taux : <strong>1 USDT = ≤ 138 HTG</strong><br>
-Réception en 15 à 30 minutes après paiement.
+Réception en 15 à 30 minutes.
 </div>
 
 <form action="https://formsubmit.co/formatech200@gmail.com" method="POST">
@@ -108,7 +109,7 @@ Réception en 15 à 30 minutes après paiement.
 <input type="text" name="Nom" required>
 
 <label>Méthode de réception :</label>
-<select id="paiement" required>
+<select id="paiement" name="Paiement" required>
     <option value="">--Choisir--</option>
     <option value="wallet">Wallet USDT</option>
     <option value="moncash">MonCash</option>
@@ -134,18 +135,19 @@ Réception en 15 à 30 minutes après paiement.
 </div>
 
 <label>WhatsApp :</label>
-<input type="text" id="whatsapp" placeholder="509XXXXXXXX" required>
+<input type="text" id="whatsapp" name="WhatsApp" placeholder="509XXXXXXXX" required>
 
 <label>Message :</label>
-<textarea id="message"></textarea>
+<textarea id="message" name="Message"></textarea>
 
 <input type="hidden" name="_next" value="https://formatech200.github.io/">
 
-<button type="submit">Envoyer par Email</button>
+<!-- BOUTON UNIQUE -->
+<button type="submit" onclick="envoyerWhatsApp()">
+🚀 Envoyer la demande
+</button>
 
 </form>
-
-<button onclick="envoyerWhatsApp()">Envoyer sur WhatsApp</button>
 
 </main>
 
@@ -156,7 +158,7 @@ Contact :
 </footer>
 
 <script>
-// AFFICHAGE DYNAMIQUE
+// AFFICHAGE CHAMPS
 document.getElementById("paiement").addEventListener("change", function() {
 
     let choix = this.value;
@@ -171,7 +173,7 @@ document.getElementById("paiement").addEventListener("change", function() {
     }
 });
 
-// WHATSAPP
+// ENVOI WHATSAPP + EMAIL
 function envoyerWhatsApp() {
 
     let nom = document.querySelector('[name="Nom"]').value;
@@ -195,7 +197,11 @@ Méthode : ${paiement}`;
     }
 
     let lien = `https://wa.me/${numeroWA}?text=${encodeURIComponent(texte)}`;
+
+    // Ouvre WhatsApp
     window.open(lien, '_blank');
+
+    // Email sera envoyé automatiquement par le formulaire
 }
 </script>
 
