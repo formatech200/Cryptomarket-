@@ -4,104 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crypto Market</title>
-
-<style>
-body {
-    font-family: Arial;
-    margin: 0;
-    background: #f5f7fa;
-}
-
-/* HEADER BLEU */
-header {
-    background: #0d47a1;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-/* MAIN */
-main {
-    max-width: 600px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-/* TITRE CENTRÉ */
-h2 {
-    color: #ff6f00;
-    text-align: center;
-}
-
-/* FORM */
-label {
-    margin-top: 10px;
-    display: block;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-/* BOUTON CENTRÉ */
-button {
-    display: block;
-    margin: 20px auto;
-    padding: 12px;
-    background: #ff6f00;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #e65100;
-}
-
-/* INFO */
-.info {
-    background: #fff3e0;
-    padding: 10px;
-    border-left: 5px solid #ff6f00;
-    margin-bottom: 15px;
-}
-
-/* FOOTER ROUGE */
-footer {
-    background: #c62828;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-footer a {
-    color: #ffccbc;
-    text-decoration: none;
-}
-</style>
 </head>
 
 <body>
 
 <header>
+
     <h1>Crypto Market</h1>
     <p>Transfert rapide USDT - MonCash - NatCash</p>
+
+    <!-- LOGOS -->
+    <div class="logos">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png?v=026" alt="USDT">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Digicel_logo.svg" alt="MonCash">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Bank_logo_placeholder.png" alt="NatCash">
+    </div>
+
 </header>
 
 <main>
 
-<h2>Formulaire de demande</h2>
+<h2 style="text-align:center; color:#ff6f00;">Formulaire de demande</h2>
 
 <div class="info">
 Taux : <strong>1 USDT = ≤ 138 HTG</strong><br>
-Réception en 15 à 30 minutes.
+Réception en 15 à 30 minutes après paiement.
 </div>
 
 <form action="https://formsubmit.co/formatech200@gmail.com" method="POST">
@@ -138,6 +65,7 @@ Réception en 15 à 30 minutes.
 <label>Message :</label>
 <textarea name="Message"></textarea>
 
+<!-- REDIRECTION EMAIL -->
 <input type="hidden" name="_next" value="https://formatech200.github.io/">
 
 <button type="submit">🚀 Envoyer la demande</button>
@@ -152,8 +80,9 @@ Contact :
 <a href="mailto:formatech200@gmail.com">Email</a>
 </footer>
 
+<!-- JS -->
 <script>
-// AFFICHAGE CHAMPS
+// AFFICHAGE DES CHAMPS
 document.getElementById("paiement").addEventListener("change", function() {
 
     let choix = this.value;
@@ -163,7 +92,8 @@ document.getElementById("paiement").addEventListener("change", function() {
 
     if (choix === "wallet") {
         document.getElementById("champ-wallet").style.display = "block";
-    } else if (choix === "moncash" || choix === "natcash") {
+    } 
+    else if (choix === "moncash" || choix === "natcash") {
         document.getElementById("champ-numero").style.display = "block";
     }
 });
