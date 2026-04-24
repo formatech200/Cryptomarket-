@@ -205,4 +205,29 @@ function formatWhatsAppLink(input) {
 </footer>
 
 </body>
-</html>
+</html><button type="button" onclick="sendWA()">Envoyer sur WhatsApp</button>
+
+<script>
+function sendWA() {
+  const nom = document.querySelector('[name="Nom"]').value;
+  const service = document.querySelector('[name="Service"]').value;
+  const montant = document.querySelector('[name="Montant"]').value;
+  const destination = document.querySelector('[name="Destination"]').value;
+  const wa = document.getElementById('wa').value.replace(/\D/g,'');
+
+  if(!wa){
+    alert("Numéro WhatsApp invalide");
+    return;
+  }
+
+  const msg =
+`Nouvelle demande Duvatech:
+Nom: ${nom}
+Service: ${service}
+Montant: ${montant}
+Destination: ${destination}`;
+
+  const url = `https://wa.me/${wa}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+</script>
