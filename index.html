@@ -159,7 +159,30 @@ document.getElementById("paiement").addEventListener("change", function() {
     }
 });
 </script>
-       
+    <div id="champ-wallet" style="display:none;">
+    <label>Adresse Wallet :</label>
+    <input type="text" name="wallet">
+</div>
+
+<div id="champ-numero" style="display:none;">
+    <label>Numéro :</label>
+    <input type="text" name="numero">
+</div>
+
+<script>
+document.getElementById("paiement").addEventListener("change", function() {
+    let choix = this.value;
+
+    document.getElementById("champ-wallet").style.display = "none";
+    document.getElementById("champ-numero").style.display = "none";
+
+    if (choix === "wallet") {
+        document.getElementById("champ-wallet").style.display = "block";
+    } else if (choix === "moncash" || choix === "natcash") {
+        document.getElementById("champ-numero").style.display = "block";
+    }
+});
+</script>   
         <label for="whatsapp">WhatsApp</label>
 <input type="text" id="whatsapp" name="WhatsApp" placeholder="50900000000" oninput="formatWhatsAppLink(this)" required>
 
