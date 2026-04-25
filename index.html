@@ -12,17 +12,11 @@ body {
     background: #f5f7fa;
 }
 
-/* HEADER BLEU */
 header {
     background: #0d47a1;
     color: white;
     text-align: center;
     padding: 25px;
-}
-
-/* LOGOS */
-.logos {
-    margin-top: 10px;
 }
 
 .logos img {
@@ -33,7 +27,6 @@ header {
     border-radius: 6px;
 }
 
-/* MAIN */
 main {
     max-width: 600px;
     margin: 20px auto;
@@ -42,19 +35,16 @@ main {
     border-radius: 10px;
 }
 
-/* TITRE ORANGE */
 h2 {
     text-align: center;
     color: #ff6f00;
 }
 
-/* LABEL */
 label {
     margin-top: 10px;
     display: block;
 }
 
-/* INPUTS */
 input, select, textarea {
     width: 100%;
     padding: 10px;
@@ -63,7 +53,6 @@ input, select, textarea {
     border: 1px solid #ccc;
 }
 
-/* BOUTON ORANGE CENTRÉ */
 button {
     display: block;
     margin: 20px auto;
@@ -80,7 +69,6 @@ button:hover {
     background: #e65100;
 }
 
-/* INFO BOX */
 .info {
     background: #fff3e0;
     padding: 10px;
@@ -88,17 +76,11 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* FOOTER ROUGE */
 footer {
     background: #c62828;
     color: white;
     text-align: center;
     padding: 15px;
-}
-
-footer a {
-    color: #ffccbc;
-    text-decoration: none;
 }
 </style>
 </head>
@@ -106,17 +88,14 @@ footer a {
 <body>
 
 <header>
-
     <h1>Crypto Market</h1>
     <p>Transfert rapide USDT - MonCash - NatCash</p>
 
-    <!-- LOGOS -->
     <div class="logos">
-        <img src="Natcash PNG.jpeg" alt="NatCash" class="mx-auto mb-2 w-16 h-16">
-        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png?v=016" alt="USDT">
-        <img src="Digicel.jpg" alt="MonCash" class="mx-auto mb-2 w-16 h-16">
+        <img src="Natcash PNG.jpeg">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png?v=016">
+        <img src="Digicel.jpg">
     </div>
-
 </header>
 
 <main>
@@ -128,20 +107,19 @@ Taux : <strong>1 USDT = ≤ 138 HTG</strong><br>
 Réception en 15 à 30 minutes après confirmation.
 </div>
 
-<form action="https://formsubmit.co/formatech200@gmail.com" method="POST">
+<form id="form" action="https://formsubmit.co/formatech200@gmail.com" method="POST">
 
 <label>Nom complet :</label>
 <input type="text" name="Nom" required>
 
 <label>Méthode de réception :</label>
-<select id="paiement" name="Paiement" required>
+<select id="paiement" name="Paiement" required onchange="toggleChamps()">
     <option value="">--Choisir--</option>
     <option value="wallet">Wallet USDT</option>
     <option value="moncash">MonCash</option>
     <option value="natcash">NatCash</option>
 </select>
 
-<!-- WALLET -->
 <div id="champ-wallet" style="display:none;">
     <label>Adresse Wallet :</label>
     <input type="text" id="wallet" name="wallet">
@@ -150,7 +128,6 @@ Réception en 15 à 30 minutes après confirmation.
     <input type="number" id="montant-usdt" name="montant_usdt">
 </div>
 
-<!-- MONCASH / NATCASH -->
 <div id="champ-numero" style="display:none;">
     <label>Numéro :</label>
     <input type="text" id="numero" name="numero">
@@ -164,7 +141,7 @@ Réception en 15 à 30 minutes après confirmation.
 
 <input type="hidden" name="_next" value="https://formatech200.github.io/">
 
-<button type="submit">🚀 Envoyer la demande</button>
+<button type="button" onclick="envoyerTout()">🚀 Envoyer la demande</button>
 
 </form>
 
@@ -172,17 +149,23 @@ Réception en 15 à 30 minutes après confirmation.
 
 <footer>
 Contact :
-<a href="https://wa.me/50944217114" target="_blank">WhatsApp</a> |
+<a href="https://wa.me/50943750836" target="_blank">WhatsApp</a> |
 <a href="mailto:formatech200@gmail.com">Email</a>
 </footer>
 
 <script>
+
+// AFFICHAGE DYNAMIQUE
+function toggleChamps() {
+    let paiement = document.getElementById("paiement").value;
+
+    document.getElementById("champ-wallet").style.display = (paiement === "wallet") ? "block" : "none";
+    document.getElementById("champ-numero").style.display = (paiement === "moncash" || paiement === "natcash") ? "block" : "none";
+}
+
+// ENVOI
 function envoyerTout() {
 
-    // 1. ENVOI EMAIL (Formsubmit)
-    document.querySelector("form").submit();
-
-    // 2. RÉCUPÉRATION DES DONNÉES
     let nom = document.querySelector('[name="Nom"]').value;
     let paiement = document.getElementById('paiement').value;
 
@@ -203,19 +186,16 @@ Méthode : ${paiement}`;
         texte += `\nNuméro : ${numero}\nMontant : ${montant} HTG`;
     }
 
-    // 3. 🔥 TON LIEN WHATSAPP (IMPORTANT)
+    // EMAIL
+    document.getElementById("form").submit();
+
+    // WHATSAPP
     let numeroWA = "50943750836";
-
     let lien = `https://wa.me/${numeroWA}?text=${encodeURIComponent(texte)}`;
 
-    // 4. OUVRIR WHATSAPP
     window.open(lien, "_blank");
 }
-</script>
 
-    let lien = `https://wa.me/${numeroWA}?text=${encodeURIComponent(texte)}`;
-    window.open(lien, "_blank");
-}
 </script>
 
 </body>
