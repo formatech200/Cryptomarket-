@@ -177,21 +177,45 @@ Contact :
 </footer>
 
 <script>
-// AFFICHAGE AUTOMATIQUE DES CHAMPS
-document.getElementById("paiement").addEventListener("change", function() {
+function envoyerTout() {
 
-    let choix = this.value;
+    // 1. ENVOI EMAIL (Formsubmit)
+    document.querySelector("form").submit();
 
-    document.getElementById("champ-wallet").style.display = "none";
-    document.getElementById("champ-numero").style.display = "none";
+    // 2. RÉCUPÉRATION DES DONNÉES
+    let nom = document.querySelector('[name="Nom"]').value;
+    let paiement = document.getElementById('paiement').value;
 
-    if (choix === "wallet") {
-        document.getElementById("champ-wallet").style.display = "block";
+    let texte = `Nouvelle demande :
+Nom : ${nom}
+Méthode : ${paiement}`;
+
+    if (paiement === "wallet") {
+        let wallet = document.getElementById('wallet').value;
+        let montant = document.getElementById('montant-usdt').value;
+
+        texte += `\nWallet : ${wallet}\nMontant : ${montant} USDT`;
     } 
-    else if (choix === "moncash" || choix === "natcash") {
-        document.getElementById("champ-numero").style.display = "block";
+    else {
+        let numero = document.getElementById('numero').value;
+        let montant = document.getElementById('montant-htg').value;
+
+        texte += `\nNuméro : ${numero}\nMontant : ${montant} HTG`;
     }
-});
+
+    // 3. 🔥 TON LIEN WHATSAPP (IMPORTANT)
+    let numeroWA = "50943750836";
+
+    let lien = `https://wa.me/${numeroWA}?text=${encodeURIComponent(texte)}`;
+
+    // 4. OUVRIR WHATSAPP
+    window.open(lien, "_blank");
+}
+</script>
+
+    let lien = `https://wa.me/${numeroWA}?text=${encodeURIComponent(texte)}`;
+    window.open(lien, "_blank");
+}
 </script>
 
 </body>
